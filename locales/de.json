@@ -1,0 +1,7 @@
+{
+  "message": {
+    "help": "Brauchen Sie Hilfe",
+    "intro": "Bis Sie Ihre Ernährung richtig eingestellt haben, wird sich nichts ändern."
+  },
+  "buttons": { "makeDiet": "Diät machen" }
+}
