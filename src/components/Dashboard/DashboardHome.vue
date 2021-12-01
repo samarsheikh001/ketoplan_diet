@@ -1,20 +1,50 @@
 <template>
-  <div class="p-4">
-    <div class="max-w-xs">
-      <h1 class="max-w-xs text-left font-bold text-xl uppercase">
-        Hi {{ username }}, time to log weight.
+  <div class="p-8">
+    <div class="quote-container">
+      <div class="quote">
+        Your body hears everything your mind says.
+      </div>
+      <div class="text-right font-bold">- Naomi Judd</div>
+    </div>
+    <div class="max-w-xs py-4">
+      <h1 class="max-w-xs text-left font-bold text-xl text-gray-500">
+        Hi <span class="text-2xl text-black">{{ username }}</span
+        >, time to log weight.
       </h1>
       <div class="flex">
         <div class="log-counter__input">
-          <button class="log-counter__input-btn">-</button>
+          <button @click="weightSet(-1)" class="log-counter__input-btn">
+            -
+          </button>
           <div class="log-counter__field flex">
-            <div class="log-counter__field-number active">76</div>
+            <div
+              @click="decimalActive = false"
+              :class="{ active: !decimalActive }"
+              class="log-counter__field-number"
+            >
+              {{ Math.floor(weight) }}
+            </div>
             <div class="log-counter__field-dot">.</div>
-            <div class="log-counter__field-number">6</div>
+            <div
+              @click="decimalActive = true"
+              :class="{ active: decimalActive }"
+              class="log-counter__field-number"
+            >
+              {{
+                weight
+                  .toFixed(1)
+                  .toString()
+                  .split(".")[1]
+              }}
+            </div>
           </div>
-          <button class="log-counter__input-btn plus">+</button>
+          <button @click="weightSet(1)" class="log-counter__input-btn">
+            +
+          </button>
         </div>
-        <!-- <button class="p-4 px-6 bg-black text-white rounded m-1">Log</button> -->
+        <button class="px-6 bg-black text-white rounded-full m-1">
+          Log
+        </button>
       </div>
     </div>
   </div>
@@ -31,7 +61,15 @@ export default {
   data() {
     return {
       username: "user",
+      weight: 76.9,
+      decimalActive: true,
     };
+  },
+  methods: {
+    weightSet(num) {
+      if (this.decimalActive) this.weight += parseFloat((num / 10).toFixed(2));
+      else this.weight += num;
+    },
   },
 };
 </script>
@@ -44,6 +82,14 @@ export default {
   @apply w-12 h-12 rounded-full text-2xl hover:bg-gray-200 font-bold;
 }
 .log-counter__field-number {
-    /* @apply  */
+  @apply text-gray-600;
+}
+
+.active {
+  @apply text-xl font-bold;
+}
+
+.quote-container {
+  @apply bg-gray-100 rounded p-2 shadow border-l-4 border-black;
 }
 </style>
