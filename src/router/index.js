@@ -27,6 +27,7 @@ import SelectGender from "../components/StartScreen/SelectGender.vue";
 import EmailCard from "../components/EmailCard.vue";
 
 //DASHBOARD
+import DashboardHome from "../components/Dashboard/DashboardHome.vue";
 import Recipes from "../components/Dashboard/Recipes.vue";
 import RecipeDetails from "../components/Dashboard/RecipeDetails.vue";
 import Profile from "../components/Dashboard/Profile.vue";
@@ -92,7 +93,7 @@ const routes = [
     meta: { requiresAuth: true },
     component: Dashboard,
     children: [
-      { path: "", component: Recipes },
+      { path: "", component: DashboardHome },
       { path: "profile", component: Profile },
       { path: "recipes", component: Recipes },
       { path: "recipes/:id", component: RecipeDetails },
