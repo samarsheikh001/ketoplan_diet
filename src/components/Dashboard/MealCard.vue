@@ -3,11 +3,11 @@
     <div>{{ Object.keys(meal) }}</div>
   </div> -->
   <div
-    class="max-w-xl shadow m-4 card rounded-lg overflow-hidden flex flex-col md:flex-row"
+    class="md:w-screen max-w-xl shadow m-4 card rounded-lg overflow-hidden flex flex-col md:flex-row"
   >
     <div class="w-full md:w-2/5 h-80">
       <img
-        class="object-center object-cover w-full h-full"
+        class="object-center object-cover sm:w-full sm:h-full"
         :src="hadewUrl + meal.image[0].url"
         alt="photo"
       />

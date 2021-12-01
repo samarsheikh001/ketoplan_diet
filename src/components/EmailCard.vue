@@ -60,7 +60,7 @@ import BaseCompletionBar from "./UI/BaseCompletionBar.vue";
 export default {
   data() {
     return {
-      showingProgress: false,
+      showingProgress: true,
       email: 'asamarsheikh@gmail.com'
     };
   },

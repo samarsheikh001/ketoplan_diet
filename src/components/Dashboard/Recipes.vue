@@ -147,7 +147,7 @@
           </div>
         </div>
         <div>
-          <h3 class="font-medium text-gray-900">Information</h3>
+          <h3 class="font-medium text-gray-900">Ingredients</h3>
           <dl
             class="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200"
           >

@@ -1,7 +1,7 @@
 <template>
   <!-- https://myketoplan.diet/assets/light/step-1-left-desktop-fs8.png -->
   <div class="container mx-auto">
-    {{ $store.state.dietplan }}
+    <!-- {{ $store.state.dietplan }} -->
     <!-- <div class="m-10 absolute z-20">{{ $store.state.auth }}</div>
     <div class="m-20 absolute z-20">
      Login: {{ $store.getters["auth/isAuthenticated"] }}
@@ -24,7 +24,6 @@
     <router-view />
   </div>
 </template>
-
 <script>
 // import "./firebase.js";
 
