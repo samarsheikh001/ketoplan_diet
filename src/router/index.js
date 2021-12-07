@@ -10,6 +10,8 @@ import StartMalePlan from "../views/StartMalePlan.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
+import StripePayment from "../views/StripePayment.vue";
+import StripePaymentSuccess from "../views/StripePaymentSuccess.vue";
 
 //MALE DIET PLAN
 import SetAge from "../components/StartMaleplan/SetAge.vue";
@@ -109,6 +111,14 @@ const routes = [
     path: "/login",
     component: Login,
     meta: { requiresUnauth: true },
+  },
+  {
+    path: "/stripe-payment",
+    component: StripePayment,
+  },
+  {
+    path: "/stripe-payment-success",
+    component: StripePaymentSuccess,
   },
   { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFoundScreen },
 ];
