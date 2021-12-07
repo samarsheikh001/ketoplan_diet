@@ -1,57 +1,69 @@
 <template>
-  <div class="p-8">
+  <div class="md:p-8 overflow-scroll">
+    <!-- QUOTE -->
     <div class="quote-container">
       <div class="quote">
         Your body hears everything your mind says.
       </div>
       <div class="text-right font-bold">- Naomi Judd</div>
     </div>
-    <div class="max-w-xs py-4">
-      <h1 class="max-w-xs text-left font-bold text-xl text-gray-500">
-        Hi <span class="text-2xl text-black">{{ username }}</span
-        >, time to log weight.
-      </h1>
-      <div class="flex">
-        <div class="log-counter__input">
-          <button @click="weightSet(-1)" class="log-counter__input-btn">
-            -
-          </button>
-          <div class="log-counter__field flex">
-            <div
-              @click="decimalActive = false"
-              :class="{ active: !decimalActive }"
-              class="log-counter__field-number"
-            >
-              {{ Math.floor(weight) }}
+    <!-- MAIN -->
+    <div class="lg:flex p-4 my-2 rounded justify-around">
+      <div class="max-w-xs py-4 md:w-screen">
+        <h1 class="max-w-xs text-left font-bold text-xl text-gray-500">
+          Hi <span class="text-2xl text-black">{{ username }}</span
+          >, time to log weight.
+        </h1>
+        <!-- LOG WEIGHT -->
+        <div class="flex">
+          <div class="log-counter__input">
+            <button @click="weightSet(-1)" class="log-counter__input-btn">
+              -
+            </button>
+            <div class="log-counter__field flex">
+              <div
+                @click="decimalActive = false"
+                :class="{ active: !decimalActive }"
+                class="log-counter__field-number"
+              >
+                {{ Math.floor(weight) }}
+              </div>
+              <div class="log-counter__field-dot">.</div>
+              <div
+                @click="decimalActive = true"
+                :class="{ active: decimalActive }"
+                class="log-counter__field-number"
+              >
+                {{
+                  weight
+                    .toFixed(1)
+                    .toString()
+                    .split(".")[1]
+                }}
+              </div>
             </div>
-            <div class="log-counter__field-dot">.</div>
-            <div
-              @click="decimalActive = true"
-              :class="{ active: decimalActive }"
-              class="log-counter__field-number"
-            >
-              {{
-                weight
-                  .toFixed(1)
-                  .toString()
-                  .split(".")[1]
-              }}
-            </div>
+            <button @click="weightSet(1)" class="log-counter__input-btn">
+              +
+            </button>
           </div>
-          <button @click="weightSet(1)" class="log-counter__input-btn">
-            +
+          <button class="px-6 bg-black text-white rounded-full m-1">
+            Log
           </button>
         </div>
-        <button class="px-6 bg-black text-white rounded-full m-1">
-          Log
-        </button>
+        <!-- LOG WEIGHT END -->
+      </div>
+      <!-- LOG WEIGHT MAIN END -->
+      <div class="bg-gray-100">
+        <DashboardCalorieCounter />
       </div>
     </div>
+    <!-- MAIN END -->
   </div>
 </template>
 
 <script>
 import { auth } from "@/firebase.js";
+import DashboardCalorieCounter from "./DashboardCalorieCounter.vue";
 export default {
   mounted() {
     console.log(auth.currentUser.displayName == null);
@@ -71,6 +83,7 @@ export default {
       else this.weight += num;
     },
   },
+  components: { DashboardCalorieCounter },
 };
 </script>
 
