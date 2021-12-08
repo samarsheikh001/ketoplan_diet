@@ -17,8 +17,8 @@
                   Get your personalized Diet Plan immediately!
                 </h2>
                 <p class="mt-6 mx-auto max-w-2xl text-lg">
-                  We don't share any personal information. 
-                   <!-- We'll email you a
+                  We don't share any personal information.
+                  <!-- We'll email you a
                   copy of your results for convenient access -->
                 </p>
               </div>
@@ -54,23 +54,27 @@
 </template>
 
 <script>
-import { setUserData } from "../firebase.js";
+// import { setUserData } from "../firebase.js";
 import BaseCompletionBar from "./UI/BaseCompletionBar.vue";
 // import BaseProgressBar from "./UI/BaseProgressBar.vue";
 export default {
   data() {
     return {
-      showingProgress: true,
-      email: 'asamarsheikh@gmail.com'
+      showingProgress: false,
+      email: "asamarsheikh@gmail.com",
     };
   },
   methods: {
-    setData() {
-      console.log()
-      setUserData({
-        email : this.email,
-        ...this.$store.state
-      })
+    async setData() {
+      const response = await fetch(`http://localhost:3000/checkout/${this.email}`);
+      const parsedResponse = await response.json();
+      console.log(parsedResponse.url);
+      window.location.replace(parsedResponse.url);
+      // setUserData({
+      //   paymentId: parsedResponse.id,
+      //   email: this.email,
+      //   ...this.$store.state,
+      // });
     },
   },
   components: {

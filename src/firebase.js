@@ -71,9 +71,9 @@ async function getUserData({ email }) {
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     // console.log("Document data:", docSnap.data());
-    return docSnap.data()
+    return docSnap.data();
   } else {
-    throw Error('No such documents')
+    throw Error("No such documents");
   }
 }
 // const setUserEmailWithData = async ({ email, data }) => {
@@ -91,19 +91,25 @@ async function getUserData({ email }) {
 // authentication
 
 const createAccount = async (email, password) => {
-  try {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    return {
-      title: "Succeed",
-      message: `Registration succeed as ${userCredential.user.email}`,
-    };
-  } catch (error) {
-    console.log(Object.keys(error));
-    return { message: error.code, title: "Failed to Register" };
+  let sam = false;
+  const userData = await getUserData({ email });
+  console.log(userData)
+  if(!sam) return {message: 'dsa', title: 'sda'}
+  if (sam) {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return {
+        title: "Succeed",
+        message: `Registration succeed as ${userCredential.user.email}`,
+      };
+    } catch (error) {
+      console.log(Object.keys(error));
+      return { message: error.code, title: "Failed to Register" };
+    }
   }
 };
 
@@ -141,7 +147,7 @@ export {
   onAuthStateChanged,
   setUserData,
   updateProfile,
-  getUserData
+  getUserData,
 };
 setTimeout(() => {
   console.log(auth.currentUser.displayName);

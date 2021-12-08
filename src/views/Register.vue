@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex">
+  <div v-if="$route.query.email" class="min-h-screen flex">
     <div
       class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
     >
@@ -14,22 +14,11 @@
           <div class="mt-6 text-left">
             <form @submit.prevent="createAccount" class="space-y-6">
               <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-gray-700"
-                >
+                <div class="block text-sm font-medium text-gray-700">
                   Email address
-                </label>
+                </div>
                 <div class="mt-1">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    v-model="email"
-                    autocomplete="email"
-                    required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
-                  />
+                  <div class="sm:text-sm">{{ email }}</div>
                 </div>
               </div>
 
@@ -108,23 +97,22 @@
       />
     </div>
   </div>
+  <div v-else class="h-screen grid justify-center items-center">
+    <div class="bg-red-100 text-red-500 p-4 rounded shadow">
+      You are not permitted to check this page
+    </div>
+  </div>
   <RegisterDialog
     :isOpen="showDialog"
     :title="title"
     :message="message"
     @close-dialog="toggleDialog"
   />
-  <button
-    @click="test"
-    class="bg-green-100 py-1 px-6 absolute top-0 text-green-400"
-  >
-    Test {{ testData }}
-  </button>
 </template>
 
 <script>
 import RegisterDialog from "../components/Register/RegisterDialog.vue";
-import { createAccount, signOutUser } from "../firebase.js";
+import { createAccount } from "../firebase.js";
 export default {
   data() {
     return {
@@ -136,6 +124,9 @@ export default {
       title: "Error",
       testData: "",
     };
+  },
+  mounted() {
+    this.email = this.$route.query.email;
   },
   methods: {
     async createAccount() {
@@ -151,10 +142,6 @@ export default {
     },
     toggleDialog() {
       this.showDialog = !this.showDialog;
-    },
-    test() {
-      signOutUser();
-      // this.testData = auth.currentUser;
     },
   },
   components: {
