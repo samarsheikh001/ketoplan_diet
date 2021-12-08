@@ -33,7 +33,10 @@
         <h3>Subscription to Starter plan successful!</h3>
       </div>
     </div>
-    <form action="https://ketoplan.herokuapp.com/create-portal-session" method="POST">
+    <form
+      action="https://ketoplan.herokuapp.com/create-portal-session"
+      method="POST"
+    >
       <input type="hidden" id="session-id" name="session_id" value="" />
       <button id="checkout-and-portal-button" type="submit">
         Manage your billing information
@@ -41,17 +44,18 @@
     </form>
   </section>
 </template>
-// ?session_id=cs_test_a1F5DCP1yybg5ase7uUKld7elUHJripdjESPLCr3FgLch8T4tcwGwovsKT
+//
+?session_id=cs_test_a1F5DCP1yybg5ase7uUKld7elUHJripdjESPLCr3FgLch8T4tcwGwovsKT
 <script>
 export default {
   mounted() {
-    document.addEventListener("DOMContentLoaded", async () => {
-      let searchParams = new URLSearchParams(window.location.search);
-      if (searchParams.has("session_id")) {
-        const session_id = searchParams.get("session_id");
-        document.getElementById("session-id").setAttribute("value", session_id);
-      }
-    });
+    console.log("wow");
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has("session_id")) {
+      const session_id = searchParams.get("session_id");
+      console.warn(session_id);
+      document.getElementById("session-id").setAttribute("value", session_id);
+    }
   },
 };
 </script>
