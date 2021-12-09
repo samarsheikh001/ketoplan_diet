@@ -1,7 +1,7 @@
 <template>
   <base-card-slot>
     <base-card-head
-      head="Lose or Gain Weight"
+      head="Lose Weight"
       question="Do you want to lose weight or Gain weight?"
     ></base-card-head>
     <base-card-option
@@ -11,6 +11,7 @@
       :value="option.value"
       :optionImg="option.img"
       customAddonClass="px-2"
+      imgWidth="w-16"
       @click="setWeightGoal(option.value)"
     ></base-card-option>
   </base-card-slot>
@@ -28,15 +29,18 @@ export default {
       gainOrLoseOptions: [
         {
           value: "Lose Weight",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/basic-male-img-1.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/basic-female-img-1.png",
         },
         {
           value: "Gain Weight",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/basic-male-img-2.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/basic-female-img-2.png",
         },
         {
           value: "Develop Healthy Habits",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/basic-male-img-3.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/basic-female-img-3.png",
         },
       ],
     };

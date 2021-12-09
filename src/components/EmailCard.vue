@@ -54,27 +54,29 @@
 </template>
 
 <script>
-// import { setUserData } from "../firebase.js";
+import { setUserData } from "../firebase.js";
 import BaseCompletionBar from "./UI/BaseCompletionBar.vue";
 // import BaseProgressBar from "./UI/BaseProgressBar.vue";
 export default {
   data() {
     return {
-      showingProgress: false,
-      email: "asamarsheikh@gmail.com",
+      showingProgress: true,
+      email: "",
     };
   },
   methods: {
     async setData() {
-      const response = await fetch(`http://localhost:3000/checkout/${this.email}`);
+      const response = await fetch(
+        `https://ketoplan.herokuapp.com/checkout/${this.email}`
+      );
       const parsedResponse = await response.json();
       console.log(parsedResponse.url);
+      await setUserData({
+        paymentId: parsedResponse.id,
+        email: this.email,
+        ...this.$store.state,
+      });
       window.location.replace(parsedResponse.url);
-      // setUserData({
-      //   paymentId: parsedResponse.id,
-      //   email: this.email,
-      //   ...this.$store.state,
-      // });
     },
   },
   components: {

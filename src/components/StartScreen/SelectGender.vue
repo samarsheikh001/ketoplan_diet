@@ -1,45 +1,48 @@
 <template>
-  <!-- <div class="background"></div> -->
   <div class="image-bg">
     <img src="../../assets/img/adobe-main.png" alt="" />
   </div>
 
   <h2 class="title">
-    <span class="font-extralight">Lose Weight With <br> </span>Keto Diet
+    <span class="font-extralight">Lose Weight With <br /> </span>Keto Diet
   </h2>
   <h3 class="question">Select your gender</h3>
   <h3 class="tailQue" v-if="tailQue">{{ tailQue }}</h3>
 
   <div class="center">
     <div class="select-gender">
-      <router-link to="/male/step-1">
+      <router-link @click="setGender('male')" to="/male/step-1">
         <div class="intro-box male">
           <img
             class="gender-img"
-            src="http://fitbyeat.com/img/male-icon.png"
+            src="https://samarsheikh001.github.io/dietplan_host/img/male-icon.png"
             alt=""
           />
           <h2 class="gender-text">Male</h2>
         </div>
       </router-link>
-      <router-link to="female">
+      <router-link @click="setGender('female')" to="/female/step-1">
         <div class="intro-box female">
           <img
             class="gender-img"
-            src="http://fitbyeat.com/img/female-icon.png"
+            src="https://samarsheikh001.github.io/dietplan_host/img/female-icon.png"
             alt=""
           />
           <h2 class="gender-text">Female</h2>
         </div>
       </router-link>
     </div>
-    <!-- <img class="offset-img" src="@/assets/img/fork-veggies.jpg" alt="" /> -->
   </div>
 </template>
 
 <script>
 export default {
   name: "SelectGender",
+  methods: {
+    setGender(value) {
+      this.$store.commit("dietplan/setGender", value);
+    },
+  },
 };
 </script>
 

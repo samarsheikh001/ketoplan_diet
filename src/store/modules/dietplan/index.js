@@ -2,6 +2,7 @@ export default {
   namespaced: true,
   state() {
     return {
+      gender: "",
       weightGoal: "",
       bodyType: "",
       age: "",
@@ -21,6 +22,9 @@ export default {
     };
   },
   mutations: {
+    setGender(state, value) {
+      state.gender = value;
+    },
     setWeightGoal(state, value) {
       state.weightGoal = value;
     },

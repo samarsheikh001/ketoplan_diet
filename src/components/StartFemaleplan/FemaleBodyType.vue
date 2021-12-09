@@ -11,6 +11,7 @@
       :cardClass="index"
       :optionImg="option.img"
       :value="option.value"
+      imgWidth="w-16"
     ></base-card-option>
   </base-card-slot>
 </template>
@@ -27,15 +28,18 @@ export default {
       bodytypeOptions: [
         {
           value: "Ectomorph",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/basic-male-img-1.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/basic-female-img-1.png",
         },
         {
           value: "Mesomorph",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/basic-male-img-2.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/basic-female-img-2.png",
         },
         {
           value: "Endomorph",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/basic-male-img-3.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/basic-female-img-3.png",
         },
       ],
     };

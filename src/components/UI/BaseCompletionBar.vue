@@ -18,6 +18,7 @@
           : "Setting Diet"
       }}
     </h2>
+    <h1 class="font-bold my-2">Relax, while we are calculating your data...</h1>
   </div>
 </template>
 

@@ -35,19 +35,19 @@ export default {
       activityOptions: [
         {
           value: "At the office",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-male-img-1.png",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-female-img-1.png",
         },
         {
           value: "Daily long walks",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-male-img-2.png",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-female-img-2.png",
         },
         {
           value: "Physical Work",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-male-img-3.png",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-female-img-3.png",
         },
         {
           value: "Mostly at home",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-male-img-4.png",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/type-day-female-img-4.png",
         },
       ],
     };

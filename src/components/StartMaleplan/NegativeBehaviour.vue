@@ -46,32 +46,32 @@ export default {
       guiltyOptions: [
         {
           value: "I don't rest enough",
-          img: "http://fitbyeat.com/img/habits-image-1.svg",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/habits-image-1.svg",
           selected: false,
         },
         {
           value: "I have a sweet tooth",
-          img: "http://fitbyeat.com/img/habits-image-2.svg",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/habits-image-2.svg",
           selected: false,
         },
         {
           value: "I have too much soda",
-          img: "http://fitbyeat.com/img/habits-image-3.png",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/habits-image-3.png",
           selected: false,
         },
         {
           value: "I eat many salty foods",
-          img: "http://fitbyeat.com/img/habits-image-4.svg",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/habits-image-4.svg",
           selected: false,
         },
         {
           value: "I enjoy midnight snacks",
-          img: "http://fitbyeat.com/img/habits-image-5.svg",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/habits-image-5.svg",
           selected: false,
         },
         {
           value: "None",
-          img: "http://fitbyeat.com/img/image-remove.svg",
+          img: "https://samarsheikh001.github.io/dietplan_host/img/image-remove.svg",
           selected: false,
         },
       ],

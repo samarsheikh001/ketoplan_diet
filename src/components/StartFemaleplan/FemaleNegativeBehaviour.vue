@@ -1,8 +1,8 @@
 <template>
   <base-card-slot>
     <base-card-head
-      head="Meats"
-      question="Finally, which meat would you like to exclude in your meal plan?"
+      head="Negative Behaviour"
+      question="We all have a few, which ones are you guity of?"
     ></base-card-head>
 
     <div class="grid-container">
@@ -10,7 +10,7 @@
         v-for="(option, index) in guiltyOptions"
         @click="
           option.value == 'None'
-            ? setNegativeBehaviour(['None'])
+            ? setNegativeBehaviour(null)
             : selectCard(option)
         "
         :class="{ 'ring-4 ring-pink-300': option.selected }"
@@ -45,33 +45,39 @@ export default {
     return {
       guiltyOptions: [
         {
-          value: "Turkey",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/meat-image-1.svg",
+          value: "I don't rest enough",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/habits-image-1.svg",
           selected: false,
         },
         {
-          value: "Fish",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/meat-image-2.svg",
+          value: "I have a sweet tooth",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/habits-image-2.svg",
           selected: false,
         },
         {
-          value: "Beef",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/meat-image-3.svg",
+          value: "I have too much soda",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/habits-image-3.png",
           selected: false,
         },
         {
-          value: "Chicken",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/meat-image-4.svg",
+          value: "I eat many salty foods",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/habits-image-4.svg",
           selected: false,
         },
         {
-          value: "Pork",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/meat-image-5.svg",
+          value: "I enjoy midnight snacks",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/habits-image-5.svg",
           selected: false,
         },
         {
           value: "None",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/image-remove.svg",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/image-remove.svg",
           selected: false,
         },
       ],
@@ -79,12 +85,12 @@ export default {
   },
   methods: {
     setNegativeBehaviour(value) {
-      this.$store.commit("dietplan/setExcludedMeats", value);
-      this.$router.push("step-5");
+      this.$store.commit("dietplan/setNegativeBehaviours", value);
+      this.$router.push("step-8");
     },
     cardClass(setClass) {
       if (!setClass.selected) return setClass.card;
-      else return setClass.card + " selected bg-red-500";
+      else return setClass.card + " selected";
     },
     selectCard(card) {
       card.selected = !card.selected;

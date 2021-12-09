@@ -61,9 +61,9 @@ const auth = getAuth(app);
 // };
 // test();
 
-function setUserData(data) {
+async function setUserData(data) {
   const docRef = doc(firestore, "users", data.email);
-  setDoc(docRef, data);
+  await setDoc(docRef, data);
 }
 
 async function getUserData({ email }) {
@@ -91,25 +91,33 @@ async function getUserData({ email }) {
 // authentication
 
 const createAccount = async (email, password) => {
-  let sam = false;
   const userData = await getUserData({ email });
-  console.log(userData)
-  if(!sam) return {message: 'dsa', title: 'sda'}
-  if (sam) {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      return {
-        title: "Succeed",
-        message: `Registration succeed as ${userCredential.user.email}`,
-      };
-    } catch (error) {
-      console.log(Object.keys(error));
-      return { message: error.code, title: "Failed to Register" };
-    }
+  console.log(userData.paymentId);
+  const { paymentId } = userData;
+  const response = await fetch(
+    `https://ketoplan.herokuapp.com/check-payment-status/${paymentId}`
+  );
+  const parsedResponse = await response.json();
+  console.log(parsedResponse);
+  if (parsedResponse.payment_status === "unpaid") {
+    return {
+      message: `You have not paid yet, complete your payment.`,
+      title: "Failed to Register",
+    };
+  }
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    return {
+      title: "Succeed",
+      message: `Registration succeed as ${userCredential.user.email}`,
+    };
+  } catch (error) {
+    console.log(Object.keys(error));
+    return { message: error.code, title: "Failed to Register" };
   }
 };
 
@@ -149,6 +157,3 @@ export {
   updateProfile,
   getUserData,
 };
-setTimeout(() => {
-  console.log(auth.currentUser.displayName);
-}, 2000);

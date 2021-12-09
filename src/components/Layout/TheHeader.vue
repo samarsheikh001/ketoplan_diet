@@ -6,7 +6,6 @@
       >
         <div class="flex items-center">
           <a href="#">
-          
             <!-- Home page : {{ isHomePage }} <br />
             Is Authenticated :
             {{ isAuthenticated }} -->
@@ -34,11 +33,12 @@
         </div>
         <div v-else>
           <div class="ml-10 space-x-4">
-            <router-link
+            <!-- <router-link
               to="register"
               class="inline-block bg-black mx-1 text-white bg-transparent py-2 px-4 border border-transparent rounded font-medium hover:bg-opacity-75"
               >Register</router-link
-            ><router-link
+            > -->
+            <router-link
               to="login"
               class="inline-block bg-black mx-1 text-white bg-transparent py-2 px-4 border border-transparent rounded font-medium hover:bg-opacity-75"
               >Login</router-link
@@ -54,9 +54,9 @@
 import { signOutUser } from "../../firebase.js";
 // import MealIcon from "../../assets/icons/meals.svg";
 export default {
-  components: { 
+  components: {
     // MealIcon
-     },
+  },
   computed: {
     isAuthenticated() {
       return (

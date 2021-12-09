@@ -33,25 +33,29 @@ export default {
         {
           value: "20s",
           range: "18-29",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/age-male-img-1.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/age-female-img-1.png",
           card: "card-1",
         },
         {
           value: "30s",
           range: "30-39",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/age-male-img-2.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/age-female-img-2.png",
           card: "card-2",
         },
         {
           value: "40s",
           range: "40-49",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/age-male-img-3.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/age-female-img-3.png",
           card: "card-3",
         },
         {
           value: "50+",
           range: "",
-          img: "https://samarsheikh001.github.io/dietplan_host/img/age-male-img-4.png",
+          img:
+            "https://samarsheikh001.github.io/dietplan_host/img/age-female-img-4.png",
           card: "card-4",
         },
       ],

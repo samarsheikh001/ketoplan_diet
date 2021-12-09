@@ -13,6 +13,16 @@ import Login from "../views/Login.vue";
 import StripePayment from "../views/StripePayment.vue";
 import StripePaymentSuccess from "../views/StripePaymentSuccess.vue";
 
+//FEMALE DIET PLAN
+import FemaleSetAge from "../components/StartFemaleplan/FemaleSetAge.vue";
+import FemaleBodyType from "../components/StartFemaleplan/FemaleBodyType.vue";
+import FemaleUsualActivity from "../components/StartFemaleplan/FemaleUsualActivity.vue";
+import FemaleNegativeBehaviour from "../components/StartFemaleplan/FemaleNegativeBehaviour.vue";
+import FemaleRest from "../components/StartFemaleplan/FemaleRest.vue";
+import FemaleLoseOrGain from "../components/StartFemaleplan/FemaleLoseOrGain.vue";
+import FemaleMeat from "../components/StartFemaleplan/FemaleMeat.vue";
+import FemaleYourMetrics from "../components/StartFemaleplan/FemaleYourMetrics.vue";
+
 //MALE DIET PLAN
 import SetAge from "../components/StartMaleplan/SetAge.vue";
 import BodyType from "../components/StartMaleplan/BodyType.vue";
@@ -82,6 +92,48 @@ const routes = [
       {
         path: "step-8",
         component: YourMetrics,
+      },
+      {
+        path: "step-9",
+        component: EmailCard,
+      },
+    ],
+  },
+  {
+    path: "/female",
+    component: StartMalePlan,
+    children: [
+      {
+        path: "step-1",
+        component: FemaleLoseOrGain,
+      },
+      {
+        path: "step-2",
+        component: FemaleBodyType,
+      },
+      {
+        path: "step-3",
+        component: FemaleSetAge,
+      },
+      {
+        path: "step-4",
+        component: FemaleMeat,
+      },
+      {
+        path: "step-5",
+        component: FemaleUsualActivity,
+      },
+      {
+        path: "step-6",
+        component: FemaleRest,
+      },
+      {
+        path: "step-7",
+        component: FemaleNegativeBehaviour,
+      },
+      {
+        path: "step-8",
+        component: FemaleYourMetrics,
       },
       {
         path: "step-9",

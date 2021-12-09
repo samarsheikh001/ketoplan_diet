@@ -103,27 +103,15 @@
       />
     </div>
   </div>
-
-  <button
-    @click="test"
-    class="bg-green-100 py-1 px-6 absolute top-0 text-green-400"
-  >
-    Test {{ testData }}
-  </button>
 </template>
 
 <script>
-import {
-  signInUser,
-  auth,
-  //   signInUser,
-} from "../firebase";
+import { signInUser } from "../firebase";
 export default {
   data() {
     return {
-      email: "Samarsheikh001@gmail.com",
-      password: "619123",
-      testData: "Data",
+      email: "",
+      password: "",
       showError: false,
       errorMessage: "Password Incorrect",
     };
@@ -138,10 +126,6 @@ export default {
       if (data.status == 200) {
         this.$router.push("dashboard");
       }
-    },
-    test() {
-      console.log(auth.currentUser);
-      //   signInUser(this.email, this.password);
     },
     toggleError(errorMessage) {
       this.errorMessage = errorMessage;
