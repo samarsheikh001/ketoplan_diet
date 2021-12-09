@@ -16,7 +16,7 @@
         <input
           v-model="userInputAge"
           class="my-input"
-          placeholder="age"
+          placeholder="Age"
           required="true"
         />
         <!-- HEIGHT -->
@@ -27,14 +27,14 @@
           <input
             v-model="heightInFeet"
             class="my-input"
-            placeholder="height feet"
+            placeholder="Height in Feet"
             :required="isImperial"
             type="number"
           />
           <input
             v-model="heightInInches"
             class="my-input"
-            placeholder="height inches"
+            placeholder="Height in Inches"
             :required="isImperial"
             type="number"
           />
@@ -43,7 +43,7 @@
           <input
             v-model="heightInCms"
             class="my-input"
-            placeholder="height in cms"
+            placeholder="Height in CM"
             :required="!isImperial"
             type="number"
           />
@@ -55,14 +55,14 @@
           v-model="weightInLb"
           class="my-input"
           :required="isImperial"
-          placeholder="your wt in lb"
+          placeholder="Weight in LBS"
           type="number"
         />
         <input
           v-else
           v-model="weightInKg"
           class="my-input"
-          placeholder="your wt in kg"
+          placeholder="Weight in KGS"
           :required="!isImperial"
           type="number"
         />

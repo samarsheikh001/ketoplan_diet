@@ -1,6 +1,19 @@
 <template>
   <div class="image-bg">
-    <img src="../../assets/img/adobe-main.png" alt="" />
+    <!-- <img src="https://dl.dropboxusercontent.com/s/itmu4lrg69cnnrg/dietplan_bg_image.png" alt="" /> -->
+    <!-- <img
+      src="https://dl.dropboxusercontent.com/s/g0vj4kyzz1ush0o/adobe-main.4c4dc535-removebg.png"
+      alt=""
+    /> -->
+    <img
+      srcset="
+        https://dl.dropboxusercontent.com/s/itmu4lrg69cnnrg/dietplan_bg_image.png            480w,
+        https://dl.dropboxusercontent.com/s/g0vj4kyzz1ush0o/adobe-main.4c4dc535-removebg.png 800w
+      "
+      sizes="(max-width: 600px) 480px,
+            800px"
+      src="https://dl.dropboxusercontent.com/s/itmu4lrg69cnnrg/dietplan_bg_image.png"
+    />
   </div>
 
   <h2 class="title">
