@@ -70,7 +70,6 @@ export default {
           return "text-purple-500 bg-purple-200 inline";
         case "dinner":
           return "text-gray-500 bg-gray-200 inline";
-
         case "evening_snack":
           return "text-pink-500 bg-pink-200 inline";
 
