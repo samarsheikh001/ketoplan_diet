@@ -37,6 +37,7 @@ import YourMetrics from "../components/StartMaleplan/YourMetrics.vue";
 import SelectGender from "../components/StartScreen/SelectGender.vue";
 
 import EmailCard from "../components/EmailCard.vue";
+import PersonalSummary from "../components/PersonalSummary.vue";
 
 //DASHBOARD
 import DashboardHome from "../components/Dashboard/DashboardHome.vue";
@@ -137,6 +138,10 @@ const routes = [
       },
       {
         path: "step-9",
+        component: PersonalSummary,
+      },
+      {
+        path: "step-10",
         component: EmailCard,
       },
     ],

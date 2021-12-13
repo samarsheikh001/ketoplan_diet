@@ -1,7 +1,4 @@
 <template>
-  <!-- <div class="m-10">
-    <div>{{ Object.keys(meal) }}</div>
-  </div> -->
   <div
     class="md:w-screen max-w-xl shadow m-4 card rounded-lg overflow-hidden flex flex-col md:flex-row"
   >
@@ -19,9 +16,6 @@
       <p class="text-gray-400 font-normal" :class="mealTypeClass">
         {{ getMealType }}
       </p>
-      <!-- <button class="bg-green-500 text-sm font-normal text-white p-2 rounded">
-        Get Details
-      </button> -->
       <p class="leading-relaxed text-gray-500 overflow-scroll">
         {{ meal.prep }}
       </p>

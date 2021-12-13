@@ -18,7 +18,6 @@ export default {
       weightInLb: "",
       heightInCms: "",
       weightInKg: "",
-      // gender: "",
     };
   },
   mutations: {
