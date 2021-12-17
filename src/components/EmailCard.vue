@@ -1,8 +1,5 @@
 <template>
-  <div v-if="showingProgress">
-    <BaseCompletionBar @completed="showingProgress = false" />
-  </div>
-  <div v-else>
+  <div>
     <div class="py-8">
       <div class="relative sm:py-16">
         <div
@@ -54,9 +51,7 @@
 </template>
 
 <script>
-import { setUserData } from "../firebase.js";
-import BaseCompletionBar from "./UI/BaseCompletionBar.vue";
-// import BaseProgressBar from "./UI/BaseProgressBar.vue";
+
 export default {
   data() {
     return {
@@ -66,21 +61,11 @@ export default {
   },
   methods: {
     async setData() {
-      const response = await fetch(
-        `https://ketoplan.herokuapp.com/checkout/${this.email}`
-      );
-      const parsedResponse = await response.json();
-      console.log(parsedResponse.url);
-      await setUserData({
-        paymentId: parsedResponse.id,
-        email: this.email,
-        ...this.$store.state,
-      });
-      window.location.replace(parsedResponse.url);
+      this.$store.commit("dietplan/setEmail", this.email);
+      this.$router.push('step-11')
     },
   },
   components: {
-    BaseCompletionBar,
     //   BaseProgressBar
   },
 };

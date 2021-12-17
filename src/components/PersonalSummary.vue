@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div v-if="showingProgress">
+    <BaseCompletionBar @completed="showingProgress = false" />
+  </div>
+  <div v-else>
     <h1 class="font-bold text-2xl py-4 pb-8">Personal Summary</h1>
     <div class="md:flex w-full justify-center space-y-4">
       <div
@@ -23,8 +26,10 @@
             {{ Math.floor(BMI) }} BMI
           </div>
         </div>
-        <div class="flex justify-between items-center p-2 flex-1 rounded-b-xl"
-        :class="{ 'bg-gray-200': healthCondition == 'Underweight' }">
+        <div
+          class="flex justify-between items-center p-2 flex-1 rounded-b-xl"
+          :class="{ 'bg-gray-200': healthCondition == 'Underweight' }"
+        >
           <div>Underweight</div>
           <div v-if="healthCondition == 'Underweight'">
             {{ Math.floor(BMI) }} BMI
@@ -83,8 +88,10 @@
 <script>
 import { mapState } from "vuex";
 import BaseButton from "./UI/BaseButton.vue";
+import BaseCompletionBar from "./UI/BaseCompletionBar.vue";
+
 export default {
-  components: { BaseButton },
+  components: { BaseButton, BaseCompletionBar },
   mounted() {
     this.calculateCalorie();
   },
@@ -92,6 +99,7 @@ export default {
     return {
       BMI: 0,
       dailyCaloriesNeed: 0,
+      showingProgress: true,
     };
   },
   computed: {

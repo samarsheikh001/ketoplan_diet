@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import { getAuth } from "../firebase.js";
 import store from "../store";
 
 // VIEWS
@@ -38,6 +37,7 @@ import SelectGender from "../components/StartScreen/SelectGender.vue";
 
 import EmailCard from "../components/EmailCard.vue";
 import PersonalSummary from "../components/PersonalSummary.vue";
+import PlanDetails from "../components/PlanDetails.vue";
 
 //DASHBOARD
 import DashboardHome from "../components/Dashboard/DashboardHome.vue";
@@ -96,7 +96,15 @@ const routes = [
       },
       {
         path: "step-9",
+        component: PersonalSummary,
+      },
+      {
+        path: "step-10",
         component: EmailCard,
+      },
+      {
+        path: "step-11",
+        component: PlanDetails,
       },
     ],
   },
@@ -143,6 +151,10 @@ const routes = [
       {
         path: "step-10",
         component: EmailCard,
+      },
+      {
+        path: "step-11",
+        component: PlanDetails,
       },
     ],
   },

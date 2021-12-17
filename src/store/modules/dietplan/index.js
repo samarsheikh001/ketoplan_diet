@@ -45,6 +45,9 @@ export default {
     setNegativeBehaviours(state, value) {
       state.negativeBehaviours = value;
     },
+    setEmail(state, value) {
+      state.email = value;
+    },
     setUserInputData(
       state,
       {

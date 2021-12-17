@@ -62,7 +62,7 @@ const auth = getAuth(app);
 // test();
 
 async function setUserData(data) {
-  const docRef = doc(firestore, "users", data.email);
+  const docRef = doc(firestore, "users", data.dietplan.email);
   await setDoc(docRef, data);
 }
 
