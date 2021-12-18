@@ -1,5 +1,4 @@
 <template>
-  <div class="relative h-screen bg-gray-50 flex overflow-hidden">
     <!-- Narrow sidebar -->
     <div class="hidden w-28 bg-radient overflow-y-auto md:block z-10">
       <div class="w-full py-6 flex flex-col items-center">

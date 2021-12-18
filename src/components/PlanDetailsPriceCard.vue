@@ -1,7 +1,7 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   {{ $store.state }}
-  <div class="bg-gray-100">
+  <div class="">
     {{ this.$store.state.dietplan.email }}
     <div class="pt-12 sm:pt-16 lg:pt-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,9 +18,9 @@
         </div>
       </div>
     </div>
-    <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+    <div class="mt-8 pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
       <div class="relative">
-        <div class="absolute inset-0 h-1/2 bg-gray-100" />
+        <div class="absolute inset-0 h-1/2 " />
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex"
@@ -86,12 +86,12 @@
               </p> -->
               <div class="mt-6">
                 <div class="rounded-md shadow">
-                  <button
+                  <div
                     @click="getAccess"
-                    class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
+                    class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 cursor-pointer"
                   >
                     Get Access
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,9 +121,10 @@ export default {
   },
   setup() {
     const store = useStore();
+    console.log(store)
     async function getAccess() {
       const response = await fetch(
-        `https://ketoplan.herokuapp.com/checkout/${this.email}`
+        `https://ketoplan.herokuapp.com/checkout/${store.state.dietplan.email}`
       );
       const parsedResponse = await response.json();
       console.log(parsedResponse)
