@@ -41,7 +41,7 @@
       >
         <h1 class="font-bold text-xl">Daily calorie intake</h1>
         <h2 class="text-red-500 text-lg font-bold">
-          {{ dailyCaloriesNeed }} approx
+          {{ dailyCaloriesNeed.toFixed(2) }} approx
         </h2>
         <h3>kCal</h3>
         <img
@@ -99,7 +99,7 @@ export default {
     return {
       BMI: 0,
       dailyCaloriesNeed: 0,
-      showingProgress: true,
+      showingProgress: false,
     };
   },
   computed: {
@@ -114,8 +114,9 @@ export default {
       "weightInKg",
     ]),
     healthCondition() {
+      console.error("BMI is", this.BMI);
       if (this.BMI < 18.5) return "Underweight";
-      else if (this.BMI < 24.9) return "Normal Weight";
+      else if (this.BMI < 24.9) return "Normal";
       else return "Overweight";
     },
   },
@@ -128,11 +129,12 @@ export default {
         ? this.weightInLb / 2
         : this.weightInKg;
       const heightInCentimeters = this.isImperial
-        ? (this.heightInFeet * 12 + this.heightInInches) * 2.54
+        ? (this.heightInFeet * 12 + parseFloat(this.heightInInches)) * 2.54
         : this.heightInCms;
+
       this.BMI =
         (weightInKilograms / heightInCentimeters / heightInCentimeters) * 10000;
-
+      console.warn(this.BMI);
       const A = 10 * weightInKilograms;
       const B = 6.25 * heightInCentimeters;
       const C = 5 * this.userInputAge;
