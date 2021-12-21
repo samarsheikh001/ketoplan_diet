@@ -79,6 +79,28 @@
         </div>
       </div>
     </div>
+
+    <div class="md:flex w-full justify-center space-y-4">
+      <div
+        class="max-w-lg flex-1 m-2 p-2 rounded-xl shadow-xl backdrop-blur backdrop-filter flex flex-col justify-center"
+      >
+        <h1 class="text-xl">Daily Water Requirement</h1>
+        <img class="h-32" src="https://myketoplan.co/water.svg" alt="" />
+        <div class="text-2xl">
+          <span class="text-blue-500">1</span> Liters / day
+        </div>
+        <p class="text-gray-400 text-sm">(about 4 glasses)</p>
+      </div>
+      <div
+        class="max-w-lg flex-1 m-2 p-2 rounded-xl shadow-xl backdrop-blur backdrop-filter"
+      >
+        <div class="text-red-500 text-5xl">88%</div>
+        <div class="text-xl">
+          similar people lost more than 10% of their initial weight on Keto1
+        </div>
+      </div>
+    </div>
+
     <div class="grid justify-center">
       <BaseButton @click="gotoEmailCard" />
     </div>
