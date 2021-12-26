@@ -11,7 +11,7 @@
             {{ isAuthenticated }} -->
             <img
               class="h-10 sm:h-16 w-auto"
-              src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=e4252cdefa&attid=0.1&permmsgid=msg-f:1719377305975997518&th=17dc748cd591444e&view=att&disp=safe&realattid=17dc746c361c4cc4b352&saddbat=ANGjdJ_nJ7VGbEvaSi69finjs17n-YxfBF_wlS5Ax6lL8XesUUb4K8vHE4W0Z7o1Qkb2p_xhIwrizt9f1ShxWHWLzxz3t_UIbgyog-kMHoF8hp7fy_zsrFCP9yySRKZ83ZXNQKO-A-OuKri7OeSMpaErXVHfsW3SKMnoCF0ZTucNbugQef63IDkmNoWbE5eacJIrI99Ld4l8EOY8e071rlSMWqT8H1CsmQErfiQCwfp18KRHci2bPeM0WF05IuPKicRrsbl4hPBEd1qZvXFmI_e_JieclrYxfIOg3GCgZfyiOVllYPQOJR7lq5u6pvVNqBC3AF8LTdJ8siWzonVNpE6CGfpA-BNpF6iU6Gh43A9zIiBDQdQU1JDFtKP9PTaI7eXhnulE7gMUTXFZP693VyE6WrUoLX8g7kC03Y-8GYAgyEGF7SGxq5M8N_mARVdxFgqIBXS6HRi3w43fUeFy0NTnPdeS39JusWNkVSItQ98rYQZrhcJY9jS4fQcnErEYf-bTD3Xsz8rIwQN9AVNokdXiKjAIh6INFMnmPHs3VSXmCMIJpQEarwvk8oEJNgGhvVNYrxhoDOq9jYdSMaOp_9v8Xsx-ENYPKgVFk6Vy9wMQLmXjNhiJXvmmibNw14dGjhprDw3vp30OU7OSwf4RqHGieeV8L-vh1B7172evfNimv9WtL2RkTsO1JGMq5Y8"
+              src="https://samarsheikh001.github.io/dietplan_host/img/ketodiet.jpg"
               alt=""
             />
           </a>

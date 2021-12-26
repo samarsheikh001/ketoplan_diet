@@ -69,14 +69,14 @@
                   </label>
                 </div>
 
-                <div class="text-sm">
+                <!-- <div class="text-sm">
                   <a
                     href="#"
                     class="font-medium text-gray-600 hover:text-gray-500"
                   >
                     Forgot your password?
                   </a>
-                </div>
+                </div> -->
               </div>
 
               <div>
