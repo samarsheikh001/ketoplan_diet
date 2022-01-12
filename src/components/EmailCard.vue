@@ -62,11 +62,10 @@ export default {
   methods: {
     async setData() {
       this.$store.commit("dietplan/setEmail", this.email);
-      this.$router.push('step-11')
+      this.$router.push("step-11");
     },
   },
   components: {
-    //   BaseProgressBar
   },
 };
 </script>

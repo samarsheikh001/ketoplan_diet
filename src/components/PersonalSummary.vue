@@ -3,7 +3,7 @@
     <BaseCompletionBar @completed="showingProgress = false" />
   </div>
   <div v-else>
-    <h1 class="font-bold text-2xl py-4 pb-8">Personal Summary</h1>
+    <h1 class="font-bold text-2xl py-4 pb-8">Personal Ssummary</h1>
     <div class="md:flex w-full justify-center space-y-4">
       <div
         class="max-w-lg flex flex-col md:text-2xl text-lg font-bold flex-1 m-2 rounded-xl shadow-xl backdrop-blur backdrop-filter"
@@ -133,7 +133,7 @@ export default {
     return {
       BMI: 0,
       dailyCaloriesNeed: 0,
-      showingProgress: false,
+      showingProgress: true,
     };
   },
   computed: {
