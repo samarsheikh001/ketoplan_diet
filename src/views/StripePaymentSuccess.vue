@@ -34,7 +34,7 @@
       </div>
     </div>
     <form
-      action="https://ketoplan.herokuapp.com/create-portal-session"
+      action="https://fitness-stripe-payment.herokuapp.com/create-portal-session"
       method="POST"
     >
       <input type="hidden" id="session-id" name="session_id" value="" />
