@@ -1,6 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  {{ $store.state }}
   <div class="">
     {{ this.$store.state.dietplan.email }}
     <div class="pt-12 sm:pt-16 lg:pt-20">

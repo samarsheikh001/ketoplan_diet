@@ -104,6 +104,18 @@
     <div class="grid justify-center">
       <BaseButton @click="gotoEmailCard" />
     </div>
+    <div class="font-bold">OUR PROMISE</div> We believe in a balanced way to lose weight and keep the weight
+    off. We know that most of the diets or weight loss programs that you have
+    tried in the past don’t work - they are just too hard to follow. Enormous
+    food cravings, friends that visit you with a bottle of wine, that freshly
+    baked cheesecake… Everything affects your journey and if your diet is not
+    easy-to-follow, you are not going to achieve your results. Don’t blame
+    yourself. It’s really hard. That’s why our nutritionists and personal
+    coaches work around the clock to prepare the most personalized plans you
+    love. We want to make sure that it becomes a part of your life. We don’t
+    change habits, we help you to improve them. Try it out and we guarantee you
+    will be satisfied. 
+    <div class="text-left text-black">Head of Nutrition, Fredrick.</div>
   </div>
 </template>
 
