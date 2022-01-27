@@ -123,7 +123,7 @@ export default {
     console.log(store)
     async function getAccess() {
       const response = await fetch(
-        `https://ketoplan.herokuapp.com/checkout/${store.state.dietplan.email}`
+        `https://fitness-stripe-payment.herokuapp.com/checkout/${store.state.dietplan.email}`
       );
       const parsedResponse = await response.json();
       console.log(parsedResponse)

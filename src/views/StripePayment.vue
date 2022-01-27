@@ -35,7 +35,7 @@
       </div>
     </div>
     <form
-      action="https://ketoplan.herokuapp.com/create-checkout-session"
+      action="https://fitness-stripe-payment.herokuapp.com/create-checkout-session"
       method="POST"
     >
       <!-- Add a hidden field with the lookup_key of your Price -->
