@@ -18,6 +18,41 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-218066017-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-218066017-1");
+    </script>
+    <!-- Global site tag (gtag.js) - Google Ads: 10838493427 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-10838493427"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-10838493427");
+    </script>
+    <!-- Event snippet for Website sale conversion page -->
+    <script>
+      gtag("event", "conversion", {
+        send_to: "AW-10838493427/wBpZCJvGtpMDEPORmbAo",
+        transaction_id: "",
+      });
+    </script>
   </head>
   <body>
     <noscript>
@@ -28,5 +63,19 @@
       >
     </noscript>
     <div id="app"></div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-218066017-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-218066017-1");
+    </script>
   </body>
 </html>
