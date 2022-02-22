@@ -11,6 +11,8 @@ import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import StripePayment from "../views/StripePayment.vue";
 import StripePaymentSuccess from "../views/StripePaymentSuccess.vue";
+import ContactUs from "../views/ContactUs.vue";
+import PrivacyPolicy from "../views/PrivacyPolicy.vue";
 
 //FEMALE DIET PLAN
 import FemaleSetAge from "../components/StartFemaleplan/FemaleSetAge.vue";
@@ -189,6 +191,8 @@ const routes = [
     path: "/stripe-payment-success",
     component: StripePaymentSuccess,
   },
+  { path: "/contact", component: ContactUs },
+  { path: "/privacy-policy", component: PrivacyPolicy },
   { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFoundScreen },
 ];
 

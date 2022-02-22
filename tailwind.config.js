@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   // mode: 'jit',
   purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
@@ -7,6 +9,8 @@ module.exports = {
     extend: {
       colors: {
         indigo: "#5c6ac4",
+        'warm-gray': colors.warmGray,
+        teal: colors.teal,
       },
     },
   },
