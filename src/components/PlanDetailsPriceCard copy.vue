@@ -96,21 +96,6 @@
             </div>
           </div>
         </div>
-        <StripeElements
-          v-if="stripeLoaded"
-          v-slot="{ elements, instance }"
-          ref="elms"
-          :stripe-key="stripeKey"
-          :instance-options="instanceOptions"
-          :elements-options="elementsOptions"
-        >
-          <StripeElement
-            ref="card"
-            :elements="elements"
-            :options="cardOptions"
-          />
-        </StripeElements>
-        <button type="button" @click="pay">Pay</button>
       </div>
     </div>
   </div>
@@ -121,10 +106,6 @@ import { CheckCircleIcon } from "@heroicons/vue/solid";
 import { useStore } from "vuex";
 import { setUserData } from "../firebase.js";
 
-import { StripeElements, StripeElement } from "vue-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-
-import { ref, onBeforeMount } from "vue";
 
 const includedFeatures = [
   "A personalized Keto meal plan",
@@ -137,8 +118,6 @@ const includedFeatures = [
 export default {
   components: {
     CheckCircleIcon,
-    StripeElement,
-    StripeElements,
   },
   setup() {
     const store = useStore();
@@ -160,38 +139,7 @@ export default {
       }
       window.location.replace(parsedResponse.url);
     }
-    const stripeKey = ref("pk_test_TYooMQauvdEDq54NiTphI7jx"); // test key
-    const instanceOptions = ref({
-      // https://stripe.com/docs/js/initializing#init_stripe_js-options
-    });
-    const elementsOptions = ref({
-      // https://stripe.com/docs/js/elements_object/create#stripe_elements-options
-    });
-    const cardOptions = ref({
-      // https://stripe.com/docs/stripe.js#element-options
-      value: {
-        postalCode: "12345",
-      },
-    });
-    const stripeLoaded = ref(false);
-    const card = ref();
-    const elms = ref();
-
-    onBeforeMount(() => {
-      const stripePromise = loadStripe(stripeKey.value);
-      stripePromise.then(() => {
-        stripeLoaded.value = true;
-      });
-    });
-
     return {
-      stripeKey,
-      stripeLoaded,
-      instanceOptions,
-      elementsOptions,
-      cardOptions,
-      card,
-      elms,
       includedFeatures,
       getAccess,
     };
