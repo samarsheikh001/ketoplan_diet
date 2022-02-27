@@ -1,4 +1,6 @@
 module.exports = {
+  devServer: {
+  },
   pluginOptions: {
     i18n: {
       locale: "en",
