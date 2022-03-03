@@ -1,5 +1,6 @@
 module.exports = {
   devServer: {
+    https: true,
   },
   pluginOptions: {
     i18n: {
