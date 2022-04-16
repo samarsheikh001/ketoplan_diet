@@ -1,46 +1,233 @@
 <template>
-  <section>
-    <div class="product">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="14px"
-        height="16px"
-        viewBox="0 0 14 16"
-        version="1.1"
-      >
-        <defs />
-        <g
-          id="Flow"
-          stroke="none"
-          stroke-width="1"
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <g
-            id="0-Default"
-            transform="translate(-121.000000, -40.000000)"
-            fill="#E184DF"
-          >
-            <path
-              d="M127,50 L126,50 C123.238576,50 121,47.7614237 121,45 C121,42.2385763 123.238576,40 126,40 L135,40 L135,56 L133,56 L133,42 L129,42 L129,56 L127,56 L127,50 Z M127,48 L127,42 L126,42 C124.343146,42 123,43.3431458 123,45 C123,46.6568542 124.343146,48 126,48 L127,48 Z"
-              id="Pilcrow"
-            />
-          </g>
-        </g>
-      </svg>
-      <div class="description">
-        <h3>Starter plan</h3>
-        <h5>$30.00 / month</h5>
+  <section class="showcase">
+    <div class="nes-container with-title">
+      <h3>Donkey Kong Country SNES $19.99</h3>
+      <div class="img">
+        <img
+          src="https://stripe-camo.global.ssl.fastly.net/6d097cce2c90965a3c955721cead3e8e0a9f8050f4122b2b3c50762fbffb326a/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423864584e6c636c38775155526f654464315454683556566c4a53327846544642554e48786d624639305a584e3058316c7963464a58546e52726556424863336b35626c5648596b5a554e45706a656730305a7a5a565335315a"
+          alt=""
+          srcset=""
+        />
       </div>
     </div>
-    <form
-      action="https://fitness-stripe-payment.herokuapp.com/create-checkout-session"
-      method="POST"
-    >
-      <!-- Add a hidden field with the lookup_key of your Price -->
-      <input type="hidden" name="lookup_key" value="keto" />
-      <button id="checkout-and-portal-button" type="submit">Checkout</button>
-    </form>
   </section>
+  <div class="nes-container with-title is-centered">
+    <form @submit.prevent="handleSubmit">
+      <fieldset :class="{ dis: loading }" class="fields">
+        <div class="nes-field"></div>
+        <div class="nes-field">
+          <label for="name_field">Name</label>
+          <input
+            placeholder="Jane Doe"
+            type="text"
+            name="name"
+            id="name_field"
+            class="nes-input"
+          />
+        </div>
+        <div class="nes-field">
+          <label for="email_field">Email</label>
+          <input
+            placeholder="jane.doe@example.com "
+            type="email"
+            name="email"
+            id="email_field"
+            class="nes-input"
+          />
+        </div>
+        <div class="nes-field">
+          <label for="address_field">Address</label>
+          <input
+            placeholder="1234 Sycamore Street"
+            type="text"
+            name="address"
+            id="address_field"
+            class="nes-input"
+          />
+        </div>
+        <div class="nes-field">
+          <label for="city_field">City</label>
+          <input
+            placeholder="Reno"
+            type="text"
+            name="city"
+            id="city_field"
+            class="nes-input"
+          />
+        </div>
+        <div class="nes-field">
+          <label for="state_field">State</label>
+          <input
+            placeholder="Nevada"
+            type="text"
+            name="state"
+            id="state_field"
+            class="nes-input"
+          />
+        </div>
+        <div class="nes-field">
+          <label for="zip_field">Zip</label>
+          <input
+            placeholder="89523"
+            type="text"
+            name="zip"
+            id="zip_field"
+            class="nes-input"
+          />
+        </div>
+        <div class="nes-field">
+          <label for="email_field">Credit Card</label>
+          <div id="stripe-element-mount-point" class="nes-input" />
+        </div>
+      </fieldset>
+      <div class="nes-field">
+        <button
+          type="submit"
+          class="nes-btn is-primary"
+          :class="{ dis: loading }"
+        >
+          {{ loading ? "Loading..." : "Pay $19.99" }}
+        </button>
+      </div>
+    </form>
+  </div>
+  <h2>Or...</h2>
+  <div class="nes-field mt">
+    <button type="button" class="nes-btn is-success" @click="redirect">
+      Pay $19.99 Page
+    </button>
+  </div>
 </template>
+
+<script>
+import { loadStripe } from "@stripe/stripe-js";
+const style = {
+  style: {
+    base: {
+      iconColor: "#000",
+      color: "#000",
+      fontWeight: "800",
+      fontFamily: "Press Start 2P",
+      fontSize: "22px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": {
+        color: "#fce883"
+      },
+      "::placeholder": {
+        color: "green"
+      }
+    },
+    invalid: {
+      iconColor: "#FFC7EE",
+      color: "red"
+    }
+  }
+};
+import { onMounted, ref } from "vue";
+import { useRouter} from "vue-router";
+export default {
+  setup() {
+    const router = useRouter();
+    let stripe = null;
+    let loading = ref(true);
+    let elements = null;
+    onMounted(async () => {
+      const ELEMENT_TYPE = "card";
+      stripe = await loadStripe("pk_test_51JzmxmSCPO3PILblgxrbMgP3MTqV6taZXhQyTtB20xDMv6mgz8Gao8Abft4ZDFKE5gCStYlYfA4rQxfQl04JMOWo00xlAvHW7r");
+      elements = stripe.elements();
+      const element = elements.create(ELEMENT_TYPE, style);
+      element.mount("#stripe-element-mount-point");
+      loading.value = false;
+    });
+    async function handleSubmit(event) {
+      if (loading.value) return;
+      loading.value = true;
+      const { name, email, address, city, state, zip } = Object.fromEntries(
+        new FormData(event.target)
+      );
+      console.log("here", name, email, address, city, state, zip);
+      const billingDetails = {
+        name,
+        email,
+        address: {
+          city,
+          line1: address,
+          state,
+          postal_code: zip
+        }
+      };
+      const cardElement = elements.getElement("card");
+      try {
+        const response = await fetch("http://localhost:3001/stripe", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ amount: 1999 })
+        });
+        const { secret } = await response.json();
+        console.log("secret", secret);
+        const paymentMethodReq = await stripe.createPaymentMethod({
+          type: "card",
+          card: cardElement,
+          billing_details: billingDetails
+        });
+        console.log("error?", paymentMethodReq);
+        const { error } = await stripe.confirmCardPayment(secret, {
+          payment_method: paymentMethodReq.paymentMethod.id
+        });
+        loading.value = false;
+        console.log("error?", error);
+        router.push("/success");
+      } catch (error) {
+        console.log("error", error);
+        loading.value = false;
+      }
+    }
+    function redirect() {
+      stripe.redirectToCheckout({
+        successUrl: "http://localhost:3000/success",
+        cancelUrl: "http://localhost:3000",
+        lineItems: [
+          {
+            price: "price_0J1wDR0ADhx7uM8yPL8Wmpoq",
+            quantity: 1
+          }
+        ],
+        mode: "payment"
+      });
+    }
+    return { redirect, loading, handleSubmit };
+  }
+};
+</script>
+<style scoped>
+.checkout {
+  border: 1px solid black;
+  padding: 3px;
+}
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 30px;
+}
+.img {
+  display: flex;
+  justify-content: center;
+}
+.showcase {
+  margin-bottom: 20px;
+}
+.mt {
+  margin-top: 20px;
+}
+.dis {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+button {
+  margin-top: 30px;
+}
+</style>
