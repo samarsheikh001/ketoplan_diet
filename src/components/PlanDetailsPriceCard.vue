@@ -1,4 +1,3 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <div class="">
     {{ this.$store.state.dietplan.email }}
@@ -85,6 +84,11 @@
               </p> -->
               <div class="mt-6">
                 <div class="rounded-md shadow">
+                  <!-- <router-link to="step-12"
+                    class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 cursor-pointer"
+                  >
+                    Get Access
+                  </router-link > -->
                   <div
                     @click="getAccess"
                     class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 cursor-pointer"
@@ -104,8 +108,8 @@
 <script>
 import { CheckCircleIcon } from "@heroicons/vue/solid";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import { setUserData } from "../firebase.js";
-
 
 const includedFeatures = [
   "A personalized Keto meal plan",
@@ -121,23 +125,26 @@ export default {
   },
   setup() {
     const store = useStore();
+    const router = useRouter()
     console.log(store);
-    async function getAccess() {
-      const response = await fetch(
-        `https://fitness-stripe-payment.herokuapp.com/checkout/${store.state.dietplan.email}`
-      );
-      const parsedResponse = await response.json();
-      console.log(parsedResponse);
-      // console.log(parsedResponse.url);
+    function getAccess() {
+      // const response = await fetch(
+      //   `https://fitness-stripe-payment.herokuapp.com/checkout/${store.state.dietplan.email}`
+      // );
+      // const parsedResponse = await response.json();
+      // console.log(parsedResponse);
       try {
-        await setUserData({
-          paymentId: parsedResponse.id,
+        setUserData({
+          // paymentId: parsedResponse.id,
           ...store.state,
         });
       } catch (error) {
         console.warn(error);
       }
-      window.location.replace(parsedResponse.url);
+
+      router.push(`step-12?email=${store.state.dietplan.email}`);
+
+      // window.location.replace(parsedResponse.url);
     }
     return {
       includedFeatures,

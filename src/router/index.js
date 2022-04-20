@@ -40,6 +40,7 @@ import SelectGender from "../components/StartScreen/SelectGender.vue";
 import EmailCard from "../components/EmailCard.vue";
 import PersonalSummary from "../components/PersonalSummary.vue";
 import PlanDetails from "../components/PlanDetails.vue";
+import ConfirmPayment from "../components/ConfirmPayment.vue";
 
 //DASHBOARD
 import DashboardHome from "../components/Dashboard/DashboardHome.vue";
@@ -108,6 +109,10 @@ const routes = [
         path: "step-11",
         component: PlanDetails,
       },
+      {
+        path: "step-12",
+        component: ConfirmPayment,
+      },
     ],
   },
   {
@@ -157,6 +162,10 @@ const routes = [
       {
         path: "step-11",
         component: PlanDetails,
+      },
+      {
+        path: "step-12",
+        component: ConfirmPayment,
       },
     ],
   },
