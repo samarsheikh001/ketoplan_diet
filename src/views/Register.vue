@@ -134,10 +134,19 @@ export default {
         this.toggleDialog();
         return;
       }
-      const { message, title } = await createAccount(this.email, this.password);
-      this.message = message;
-      this.title = title;
-      console.warn(message);
+      const redirectStatus = this.$route.query.redirect_status;
+      if (redirectStatus == "succeeded") {
+        const { message, title } = await createAccount(
+          this.email,
+          this.password
+        );
+        this.message = message;
+        this.title = title;
+        console.warn(message);
+      } else {
+        this.message = "You have not paid yet, complete your payment.";
+        this.title = "Failed to Register";
+      }
       this.toggleDialog();
     },
     toggleDialog() {

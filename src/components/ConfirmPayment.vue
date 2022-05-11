@@ -159,14 +159,14 @@ export default {
     const isLoading = ref(false);
     onMounted(async () => {
       const { publishableKey } = await fetch(
-        "http://localhost:4242/config"
+        "https://fitnessdietstripe.herokuapp.com/config"
       ).then((res) => res.json());
       console.log(publishableKey);
 
       stripe = await loadStripe(publishableKey);
       console.log(stripe);
       const { clientSecret, error: backendError } = await fetch(
-        "http://localhost:4242/create-payment-intent"
+        "https://fitnessdietstripe.herokuapp.com/create-payment-intent"
       ).then((res) => res.json());
       if (backendError) {
         messages.value.push(backendError.message);

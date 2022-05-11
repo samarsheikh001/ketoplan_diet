@@ -91,20 +91,20 @@ async function getUserData({ email }) {
 // authentication
 
 const createAccount = async (email, password) => {
-  const userData = await getUserData({ email });
-  console.log(userData.paymentId);
-  const { paymentId } = userData;
-  const response = await fetch(
-    `https://ketoplan.herokuapp.com/check-payment-status/${paymentId}`
-  );
-  const parsedResponse = await response.json();
-  console.log(parsedResponse);
-  if (parsedResponse.payment_status === "unpaid") {
-    return {
-      message: `You have not paid yet, complete your payment.`,
-      title: "Failed to Register",
-    };
-  }
+  // const userData = await getUserData({ email });
+  // console.log(userData.paymentId);
+  // const { paymentId } = userData;
+  // const response = await fetch(
+  //   `https://ketoplan.herokuapp.com/check-payment-status/${paymentId}`
+  // );
+  // const parsedResponse = await response.json();
+  // console.log(parsedResponse);
+  // if (parsedResponse.payment_status === "unpaid") {
+  //   return {
+  //     message: `You have not paid yet, complete your payment.`,
+  //     title: "Failed to Register",
+  //   };
+  // }
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
