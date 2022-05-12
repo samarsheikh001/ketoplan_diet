@@ -3,7 +3,7 @@
     <BaseCompletionBar @completed="showingProgress = false" />
   </div>
   <div v-else>
-    <h1 class="font-bold text-2xl py-4 pb-8">Personal Ssummary</h1>
+    <h1 class="font-bold text-2xl py-4 pb-8">Personal Summary</h1>
     <div class="md:flex w-full justify-center space-y-4">
       <div
         class="max-w-lg flex flex-col md:text-2xl text-lg font-bold flex-1 m-2 rounded-xl shadow-xl backdrop-blur backdrop-filter"
@@ -100,21 +100,33 @@
         </div>
       </div>
     </div>
+    <div class="flex flex-col justify-center items-center py-4">
+      <img
+        class="max-w-md"
+        src="https://myketoplan.co/_next/static/images/keto-foods-00e763650c9a21a2324d8eb6cca53b4a.jpg.webp"
+        alt=""
+      />
+      <div class="text-xl font-bold py-2">
+        Join Over 45,000 Ketoers Worldwide
+      </div>
+      <div class="italic font-bold text-2xl">You're in good hands.</div>
+      <div>We've successfully worked with clients of all shapes and sizes.</div>
+    </div>
 
     <div class="grid justify-center">
       <BaseButton @click="gotoEmailCard" />
     </div>
-    <div class="font-bold">OUR PROMISE</div> We believe in a balanced way to lose weight and keep the weight
-    off. We know that most of the diets or weight loss programs that you have
-    tried in the past don’t work - they are just too hard to follow. Enormous
-    food cravings, friends that visit you with a bottle of wine, that freshly
-    baked cheesecake… Everything affects your journey and if your diet is not
-    easy-to-follow, you are not going to achieve your results. Don’t blame
-    yourself. It’s really hard. That’s why our nutritionists and personal
-    coaches work around the clock to prepare the most personalized plans you
-    love. We want to make sure that it becomes a part of your life. We don’t
-    change habits, we help you to improve them. Try it out and we guarantee you
-    will be satisfied. 
+    <div class="font-bold">OUR PROMISE</div>
+    We believe in a balanced way to lose weight and keep the weight off. We know
+    that most of the diets or weight loss programs that you have tried in the
+    past don’t work - they are just too hard to follow. Enormous food cravings,
+    friends that visit you with a bottle of wine, that freshly baked cheesecake…
+    Everything affects your journey and if your diet is not easy-to-follow, you
+    are not going to achieve your results. Don’t blame yourself. It’s really
+    hard. That’s why our nutritionists and personal coaches work around the
+    clock to prepare the most personalized plans you love. We want to make sure
+    that it becomes a part of your life. We don’t change habits, we help you to
+    improve them. Try it out and we guarantee you will be satisfied.
     <div class="text-left text-black">Head of Nutrition, Fredrick.</div>
   </div>
 </template>

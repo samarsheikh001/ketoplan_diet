@@ -1,7 +1,7 @@
 module.exports = {
-  devServer: {
-    https: true,
-  },
+  // devServer: {
+  //   https: true,
+  // },
   pluginOptions: {
     i18n: {
       locale: "en",

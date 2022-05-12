@@ -191,7 +191,7 @@ export default {
         elements,
         confirmParams: {
           return_url: `${window.location.origin}/register?email=${route.query.email}`,
-          receipt_email: "samarsheikh001@gmail.com",
+          // receipt_email: "samarsheikh001@gmail.com",
         },
       });
 
