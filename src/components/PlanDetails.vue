@@ -1,5 +1,6 @@
 <template>
   <plan-details-price-card />
+  <div class="text-3xl">What users say aboout us</div>
   <section class="bg-white overflow-hidden">
     <div
       class="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20"
@@ -95,7 +96,9 @@
             />
           </svg>
           <blockquote class="relative">
-            <div class="leading-9 font-medium text-gray-900 text-xl sm:text-2xl">
+            <div
+              class="leading-9 font-medium text-gray-900 text-xl sm:text-2xl"
+            >
               <p>
                 “After I went into a cardiac arrest last year, I knew I was
                 given a "mulligan" in this game we call life. After weeks of
@@ -132,12 +135,64 @@
       </div>
     </div>
   </section>
+
+  <section class="text-left p-6">
+    <div>
+      <div class="font-bold text-3xl">All Plans Include</div>
+      <div v-for="plan in planIncludes" :key="plan" class="py-2">
+        <CheckCircleIcon class="w-8 inline-block text-green-500" />
+        <span>{{ plan }}</span>
+      </div>
+    </div>
+    <img src="https://myketoplan.co/safe-checkout.png" alt="" />
+  </section>
+
+  <section class="text-left p-6">
+    <div>
+      <div class="font-bold text-3xl">Finally a meal plan that works</div>
+      <div>
+        <div class="flex space-x-6 items-center">
+          <div>
+            <div class="text-xl">
+              People Just Like You Achieved Great Results Using Our Meal Plans:
+            </div>
+            <div>
+              MyKetoPlan is a huge help because it lays out everything in such
+              an easy way to follow. I'm pretty smart, but with all of the
+              information out there it was just so overwhelming and I needed a
+              blueprint on exactly what to do. - Jenny K.
+            </div>
+          </div>
+          <img
+            class="w-1/2 max-w-sm"
+            src="https://myketoplan.co/_next/static/images/female-before-after-1-613a1f622ac2a577a01f99abd5c9da39.jpg.webp"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 import PlanDetailsPriceCard from "./PlanDetailsPriceCard.vue";
+import { CheckCircleIcon } from "@heroicons/vue/solid";
 
 export default {
-  components: { PlanDetailsPriceCard },
+  components: { PlanDetailsPriceCard, CheckCircleIcon },
+  data() {
+    return {
+      planIncludes: [
+        "Easy to follow Customized Keto Meal Plan",
+        "Keto nutrition analysis",
+        "Weekly kgrocery list",
+        "Easy-to-follow, tasty recipes",
+        "Digital access on any device",
+        "Ingredients found at any store",
+        "Designed to give results in just 28 days",
+        "Free keto starter guide",
+      ],
+    };
+  },
 };
 </script>

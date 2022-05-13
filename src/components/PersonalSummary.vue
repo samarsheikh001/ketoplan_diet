@@ -128,6 +128,18 @@
     that it becomes a part of your life. We don’t change habits, we help you to
     improve them. Try it out and we guarantee you will be satisfied.
     <div class="text-left text-black">Head of Nutrition, Fredrick.</div>
+    <div class="text-4xl font-bold pt-5">Positive Effects on Skin</div>
+    <div class="flex flex-col justify-center items-center">
+      <div>
+        The keto diet is low in carbs and refined sugars. Excess sugar intake
+        leads to a process called glycation, weaken collagen and lead to the
+        development of wrinkles and lines.1
+      </div>
+      <img
+        src="https://myketoplan.co/_next/static/images/skin-care-b8b0644aaeb79b2026513d0da8f1c85c.png.webp"
+        alt=""
+      />
+    </div>
   </div>
 </template>
 

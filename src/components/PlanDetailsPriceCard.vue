@@ -1,6 +1,5 @@
 <template>
   <div class="">
-    {{ this.$store.state.dietplan.email }}
     <div class="pt-12 sm:pt-16 lg:pt-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
