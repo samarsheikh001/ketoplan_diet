@@ -78,26 +78,8 @@
 
                       <div class="ml-4">
                         <label for="quantity" class="sr-only">Quantity</label>
-                        <select
-                          v-model="quantity"
-                          id="quantity"
-                          name="quantity"
-                          class="rounded-md border border-gray-300 text-base font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                        </select>
-                        <span class="ml-2">weeks</span>
+                      <span>{{quantity}}</span>
+                        <span class="ml-2">Months</span>
                       </div>
                     </div>
                   </div>
@@ -109,7 +91,13 @@
                     Total
                   </dt>
                   <dd class="text-base font-medium text-gray-900">
-                    ${{ quantity * 1.99 }}
+                    ${{
+                      quantity == 1
+                        ? "15.99"
+                        : quantity == 3
+                        ? "30.99"
+                        : "45.99"
+                    }}
                   </dd>
                 </div>
               </dl>
@@ -132,6 +120,14 @@
         </div>
       </div>
     </div>
+    <div class="space-x-2">
+      <button class="py-2 px-4 rounded bg-gray-200">
+        <router-link to="/contact">Contact Us</router-link>
+      </button>
+      <button class="py-2 px-4 rounded bg-gray-200">
+        <router-link to="/privacy-policy">Privacy Policy</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -144,7 +140,7 @@ const products = [
   {
     id: 1,
     title: "Ketodiet plan",
-    desc: "2.99$ per week",
+    desc: "Monthly plan",
   },
 ];
 
@@ -165,8 +161,9 @@ export default {
 
       stripe = await loadStripe(publishableKey);
       console.log(stripe);
+      quantity.value = route.query.months;
       const { clientSecret, error: backendError } = await fetch(
-        "https://fitnessdietstripe.herokuapp.com/create-payment-intent"
+        "https://fitnessdietstripe.herokuapp.com/create-payment-intent?months=" + quantity.value
       ).then((res) => res.json());
       if (backendError) {
         messages.value.push(backendError.message);

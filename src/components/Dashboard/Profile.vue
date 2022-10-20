@@ -48,6 +48,14 @@
         </div>
       </div>
     </div>
+    <div class="space-x-2">
+      <button class="py-2 px-4 rounded bg-gray-200">
+        <router-link to="/contact">Contact Us</router-link>
+      </button>
+      <button class="py-2 px-4 rounded bg-gray-200">
+        <router-link to="/privacy-policy">Privacy Policy</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
